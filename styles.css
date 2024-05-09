@@ -54,31 +54,31 @@ p {
 /* Specific styles for Wanderlust World */
 
 /* Destination image styling */
-#destinations .Eiffel_Tower {
+#destinations Eiffel_Tower {
     width: 100%;
     height: auto;
 }
 
 /* Accommodation image styling */
-#accommodations .beach_resort {
+#accommodations beach_resort {
     width: 100%;
     height: auto;
 }
 
 /* Activity image styling */
-#activities .hiking_trail {
+#activities hiking_trail {
     width: 100%;
     height: auto;
 }
 
 /* Travel guide image styling */
-#guides .city_guide {
+#guides city_guide {
     width: 100%;
     height: auto;
 }
 
 /* Community image styling */
-#community .travel_community {
+#community travel_community {
     width: 100%;
     height: auto;
 }
