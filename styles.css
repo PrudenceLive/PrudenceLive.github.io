@@ -57,33 +57,33 @@ p {
 #destinations .Eiffel_Tower {
     width: 100%;
     height: auto;
-    background-image: url('Images/eiffel_tower.jpg'); /* Update image path */
+    background-image: ('Images/Eiffel Towerr.jpg'); /* Update image path */
 }
 
 /* Accommodation image styling */
 #accommodations .beach_resort {
     width: 100%;
     height: auto;
-    background-image: url('Images/beach_resort.jpg'); /* Update image path */
+    background-image: ('Images/beach_resort.jpg'); /* Update image path */
 }
 
 /* Activity image styling */
 #activities .hiking_trail {
     width: 100%;
     height: auto;
-    background-image: url('Images/hiking_trail.jpg'); /* Update image path */
+    background-image: ('Images/hiking_trail.jpg'); /* Update image path */
 }
 
 /* Travel guide image styling */
 #guides .city_guide {
     width: 100%;
     height: auto;
-    background-image: url('Images/city_guide.jpg'); /* Update image path */
+    background-image: ('Images/city_guide.jpg'); /* Update image path */
 }
 
 /* Community image styling */
 #community .travel_community {
     width: 100%;
     height: auto;
-    background-image: url('Images/travel_community.jpg'); /* Update image path */
+    background-image: ('Images/travel_community.jpg'); /* Update image path */
 }
