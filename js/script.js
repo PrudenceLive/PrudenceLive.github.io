@@ -13,25 +13,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     // Open the tab on click
-    document.querySelectorAll('.tablinks').forEach(button => {
-        button.addEventListener('click', function(event) {
-            openTab(event, this.textContent);
-        });
-    });
+    document.getElementById('loginBtn').addEventListener('click', () => {
+    document.getElementById('loginForm').classList.remove('hidden');
+    document.getElementById('signupForm').classList.add('hidden');
+    document.getElementById('loginBtn').classList.add('active');
+    document.getElementById('signupBtn').classList.remove('active');
+});
 
-    function openTab(event, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(tabName).style.display = "block";
-        event.currentTarget.className += " active";
-    }
+document.getElementById('signupBtn').addEventListener('click', () => {
+    document.getElementById('signupForm').classList.remove('hidden');
+    document.getElementById('loginForm').classList.add('hidden');
+    document.getElementById('signupBtn').classList.add('active');
+    document.getElementById('loginBtn').classList.remove('active');
+});
 
     // Smooth scroll for navigation links
     const links = document.querySelectorAll('.menu-hover');
