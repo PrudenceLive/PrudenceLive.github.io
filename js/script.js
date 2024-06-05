@@ -30,8 +30,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     // Event listeners for login and signup buttons
-    document.getElementById('loginBtn').addEventListener('click', showLogin);
-    document.getElementById('signupBtn').addEventListener('click', showSignup);
+    const loginBtn = document.getElementById('loginBtn');
+    const signupBtn = document.getElementById('signupBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (loginBtn) {
+        loginBtn.addEventListener('click', showLogin);
+    }
+
+    if (signupBtn) {
+        signupBtn.addEventListener('click', showSignup);
+    }
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            signOut();
+        });
+    }
 
     // Smooth scroll for navigation links
     const links = document.querySelectorAll('.menu-hover');
@@ -48,6 +63,36 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
         });
     });
+
+    // Initialize carousel
+    $(".owl-carousel").owlCarousel({
+        items: 3,
+        margin: 10,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true
+    });
+});
+
+// Google Sign-In success callback
+function onSignIn(googleUser) {
+    const profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId());
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail());
+}
+
+// Sign out from Google
+function signOut() {
+    const auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(() => {
+        console.log('User signed out.');
+        window.location.href = 'logout.html';
+    });
+}
+
 
     // Initialize carousel
     $(".owl-carousel").owlCarousel({
