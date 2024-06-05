@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById("defaultOpen").click();
+    // Default open tab
+    document.getElementById("loginBtn").click();
 
     // Toggle password visibility
     const togglePassword = document.querySelectorAll('.toggle-password');
@@ -12,20 +13,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 
-    // Open the tab on click
-    document.getElementById('loginBtn').addEventListener('click', () => {
-    document.getElementById('loginForm').classList.remove('hidden');
-    document.getElementById('signupForm').classList.add('hidden');
-    document.getElementById('loginBtn').classList.add('active');
-    document.getElementById('signupBtn').classList.remove('active');
-});
+    // Show login form and hide signup form
+    function showLogin() {
+        document.getElementById("loginForm").classList.remove("hidden");
+        document.getElementById("signupForm").classList.add("hidden");
+        document.getElementById("loginBtn").classList.add('active');
+        document.getElementById("signupBtn").classList.remove('active');
+    }
 
-document.getElementById('signupBtn').addEventListener('click', () => {
-    document.getElementById('signupForm').classList.remove('hidden');
-    document.getElementById('loginForm').classList.add('hidden');
-    document.getElementById('signupBtn').classList.add('active');
-    document.getElementById('loginBtn').classList.remove('active');
-});
+    // Show signup form and hide login form
+    function showSignup() {
+        document.getElementById("signupForm").classList.remove("hidden");
+        document.getElementById("loginForm").classList.add("hidden");
+        document.getElementById("signupBtn").classList.add('active');
+        document.getElementById("loginBtn").classList.remove('active');
+    }
+
+    // Event listeners for login and signup buttons
+    document.getElementById('loginBtn').addEventListener('click', showLogin);
+    document.getElementById('signupBtn').addEventListener('click', showSignup);
 
     // Smooth scroll for navigation links
     const links = document.querySelectorAll('.menu-hover');
