@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', (event) => {
     // Default open tab
     document.getElementById("loginBtn").click();
 
