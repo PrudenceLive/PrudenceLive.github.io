@@ -14,12 +14,40 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     // Show login form and hide signup form
-    function showLogin() {
-        document.getElementById("loginForm").classList.remove("hidden");
-        document.getElementById("signupForm").classList.add("hidden");
-        document.getElementById("loginBtn").classList.add('active');
-        document.getElementById("signupBtn").classList.remove('active');
-    }
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
+    <title>Sign Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Sign-In client ID -->
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <!-- Include the Google Sign-In platform library -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+    <div class="container">
+        <h3 class="form-header">Signup</h3>
+        <form id="signupForm" class="form">
+            <label for="email">Email</label>
+            <input type="email" id="signupEmail" required>
+            <label for="password">Password</label>
+            <input type="password" id="signupPassword" required>
+            <button type="submit" class="submit-btn">Sign Up</button>
+            <div class="alternative">
+                <span>OR</span>
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
 
     // Show signup form and hide login form
     function showSignup() {
@@ -81,7 +109,14 @@ function onSignIn(googleUser) {
     console.log('ID: ' + profile.getId());
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+    // The ID token you need to pass to your backend
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log('ID Token: ' + id_token);
+
+    // Perform any additional actions, like sending the token to your backend
+    // Example: sendTokenToBackend(id_token);
 }
 
 // Sign out from Google
@@ -93,6 +128,8 @@ function signOut() {
     });
 }
 
+// Attach the signOut function to a button if needed
+document.getElementById('signOutButton').addEventListener('click', signOut);
 
     // Initialize carousel
     $(".owl-carousel").owlCarousel({
